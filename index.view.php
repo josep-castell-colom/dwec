@@ -5,8 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página de ejercicios de Josep Maria Castell Colom</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="/main.js" defer></script>
+  <link rel="stylesheet" href="./style.css" type="text/css">
+  <script src="./main.js" defer></script>
 </head>
 <body>
   <header>
@@ -45,6 +45,16 @@
           tablas_multiplicar(10,10);
         ?>
       </div>
+    </section>
+    <section class="exercice-section">
+      <h2 class="exercice-section-title">Formulario<pre>[04/10/22]</pre></h2>
+      <form action="form.php" method="GET">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre">
+        <label for="edad">Edad:</label>
+        <input type="text" name="edad">
+        <button type="submit">Enviar</button>
+      </form>
     </section>
   </main>
   <footer>

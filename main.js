@@ -5,8 +5,8 @@ function show(element) {
   showMultiplication(element);
 }
 
-function showMultiplication(element){
-  if(element === "tabla-tablas-multiplicar"){
+function showMultiplication(element) {
+  if (element === "tabla-tablas-multiplicar") {
     show("show-multiplication");
   }
 }
@@ -54,5 +54,6 @@ document.getElementById("multiply-table").addEventListener("mouseout", () => {
     td.style.backgroundColor = "inherit";
   });
 
-  document.getElementById("show-multiplication").innerText = "Pasa el ratón sobre la tabla";
-})
+  document.getElementById("show-multiplication").innerText =
+    "Pasa el ratón sobre la tabla";
+});

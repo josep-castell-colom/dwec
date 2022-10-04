@@ -25,7 +25,17 @@ function print_table(){
   try {
     $lista = [null, 0, true, false, "0", "", "foo", array(), "hola"];
     unset($lista[8]);
-    $str_lista = ["\$var = null", "\$var = 0", "\$var = true", "\$var = false", "\$var = \"0\"", "\$var = \"\"", "\$var = \"foo\"", "\$var = array()", "unset(\$var)"];
+    $str_lista = [
+      "\$var = null",
+      "\$var = 0",
+      "\$var = true",
+      "\$var = false",
+      "\$var = \"0\"",
+      "\$var = \"\"",
+      "\$var = \"foo\"",
+      "\$var = array()",
+      "unset(\$var)
+    "];
     $func = ["is_set", "is_empty", "to_bool", "is_null"];
     $output = <<<TEXT
       <table id='var-table'>
@@ -42,10 +52,10 @@ function print_table(){
         <tbody>
     TEXT;
   
-    for($i = 0; $i < 9; $i++) {
+    for ($i = 0; $i < 9; $i++) {
       $output .= "<tr>" . add_tags("td", $i + 1);
       $output .= add_tags("td", add_tags("code", "$str_lista[$i]"));
-      for($j = 0; $j < 4; $j++){
+      for ($j = 0; $j < 4; $j++){
         $temp_var = $func[$j]($lista[$i]) ? "true" : "false";
         $output .= add_tags("td", $temp_var);
       }
@@ -62,15 +72,15 @@ function print_table(){
 
 function tablas_multiplicar($multiplicando, $multiplicador){
   $output = "<table id='multiply-table'><thead><th style='background-color: var(--table-secondary-color)'>*</th>";
-  for($x = 0; $x <= $multiplicando; $x++){
+  for ($x = 0; $x <= $multiplicando; $x++){
     $output .= "<th id='x$x'>$x</th>";
   }
 
   $output .= "</thead><tbody>";
 
-  for($y = 0; $y <= $multiplicando; $y++){
+  for ($y = 0; $y <= $multiplicando; $y++){
     $output .= "<tr id='row-y$y'><th id='y$y'>$y</th>";
-    for($x = 0; $x <= $multiplicador; $x++){
+    for ($x = 0; $x <= $multiplicador; $x++){
       $output .= "<td id='x$x-y$y' data-x='$x' data-y='$y'>" . $x * $y . "</td>";
     }
     $output .= "</tr>";
@@ -79,5 +89,7 @@ function tablas_multiplicar($multiplicando, $multiplicador){
   $output .= "</tbody></table>";
   echo $output;
 }
+
+
 
 require './index.view.php';
