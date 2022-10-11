@@ -4,8 +4,117 @@
     <meta charset="UTF-8" />
     <title>El primer script</title>
     <script type="text/javascript" src="./codigo.js" defer></script>
+    <style>
+      html {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      body {
+        margin: 0;
+        padding: 0 8px;
+      }
+      header {
+        background-color: blanchedalmond;
+      }
+      code {
+        font-family: "Ubuntu Mono", monospace;
+      }
+    </style>
   </head>
   <body>
-    <p>Esta página contiene el primer script</p>
+    <header>
+      <h1>Actividades JS</h1>
+      <h2>Actividades de iniciación y básicas</h2>
+    </header>
+    <section id="a1">
+      <h3>Actividad 1</h3>
+      <p>Esta página contiene el primer script</p>
+      <noscript>Esta página necesita JavaScript</noscript>
+    </section>
+    <section id="a2">
+      <h3>Actividad 2</h3>
+      <p>Modificar el script anterior</p>
+      <button onclick="alertaMensaje()">Alert</button>
+    </section>
+    <section id="a3">
+      <h3>Actividad 3</h3>
+      <p>
+        Crear un array llamado meses y que almacene el nombre de los doce meses
+        del año. Mostrar por pantalla los doce nombres utilizando la función
+        <code>alert()</code>.
+      </p>
+      <button onclick="mostrarMeses()">Ver meses</button>
+    </section>
+    <section id="a4">
+      <h3>Actividad 4</h3>
+      <p><code>var valores = [true, 5, false, "hola", "adios", 2];</code></p>
+      <button onclick="longestString()">Mayor string</button><br />
+      <button onclick="booleanValuesOr()">true || false</button>
+      <button onclick="booleanValuesAnd()">true && false</button><br />
+      <button onclick="numberOperations()">Operaciones matemáticas</button>
+    </section>
+    <section id="a5">
+      <h3>Actividad 5</h3>
+      <p>
+        Completar las condiciones de los if del siguiente script para que los
+        mensajes de los <code>alert()</code> se muestren siempre de forma
+        correcta:
+      </p>
+      <button onclick="compareNumbers()">Ver alertas</button>
+    </section>
+    <section id="a6">
+      <h3>Actividad 6</h3>
+      <p>Cálculo de la letra del DNI.</p>
+      <button onclick="getLetraDni()">Comprobar letra</button>
+    </section>
+    <section id="a7">
+      <h3>Actividad 7</h3>
+      <p>
+        Utilizando la estructura for, crear un script que calcule el factorial
+        de un número entero.
+      </p>
+      <button onclick="calcularFactorial()">Calcular factorial</button>
+    </section>
+    <section id="b1">
+      <h3>Actividad B1</h3>
+      <p>Calcula tu peso lunar.</p>
+      <button onclick="pesoLunar()">Calcula</button>
+    </section>
+    <section id="b2">
+      <h3>Actividad B2</h3>
+      <p>Calcula tu IMC.</p>
+      <button onclick="imc()">Calcula</button>
+    </section>
+    <section id="b3">
+      <h3>Actividad B3</h3>
+      <p>Conversor pies / pulgadas</p>
+      <button onclick="piePulgada()">Convierte</button>
+    </section>
+    <section id="b4">
+      <h3>Actividad B4</h3>
+      <p>Conversor pulgadas / cm - m</p>
+      <button onclick="pulgadaCmM()">Convierte</button>
+    </section>
+    <section id="b5">
+      <h3>Actividad B5</h3>
+      <p>Calcula la nota media</p>
+      <button onclick="media()">Calcula</button>
+    </section>
+    <section id="b6">
+      <h3>Actividad B6</h3>
+      <p>Calcula salario semanal</p>
+      <button onclick="salario()">Calcula</button>
+    </section>
+    <section id="b7">
+      <h3>Actividad B7</h3>
+      <p>Numero aleatorio 0 - 50</p>
+      <button onclick="alertAleatorio(50)">Generar</button>
+    </section>
+    <section id="b8">
+      <h3>Actividad B8</h3>
+      <p>Calcula el mayor de 2 numeros y el menor de 3.</p>
+      <button onclick="mayor()">Calcula mayor</button>
+      <button onclick="menor()">Calcula menor</button>
+      <button onclick="alertOrdenar()">Ordena</button>
+    </section>
   </body>
 </html>
