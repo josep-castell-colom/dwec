@@ -248,7 +248,7 @@ function salario() {
 
 // Actividad B7
 function numeroAleatorio(maxNum){
-  return Math.floor(Math.random() * 50);
+  return Math.floor(Math.random() * maxNum);
 }
 function alertAleatorio(maxNum){
   alert(numeroAleatorio(maxNum));
