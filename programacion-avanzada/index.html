@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
     <script src="./main.js" defer></script>
   </head>
   <body>
@@ -19,7 +20,7 @@
       </p>
       <input type="number" id="par-o-impar-input" />
       <button id="par-o-impar-button">Par o impar?</button>
-      <span id="par-o-impar-output"></span>
+      <span id="par-o-impar-output" class="output"></span>
     </section>
     <section id="a9">
       <h1>Actividad 9</h1>
@@ -31,7 +32,7 @@
       </p>
       <input type="text" id="mayus-minus-input" />
       <button id="mayus-minus-button">Analizar</button>
-      <span id="mayus-minus-output"></span>
+      <span id="mayus-minus-output" class="output"></span>
     </section>
     <section id="a10">
       <h1>Actividad 10</h1>
@@ -43,7 +44,7 @@
       </p>
       <input type="text" id="palindromo-input" />
       <button id="palindromo-button">Comprobar</button>
-      <span id="palindromo-output"></span>
+      <span id="palindromo-output" class="output"></span>
     </section>
     <section id="c1">
       <h1>Actividad C1</h1>
@@ -53,7 +54,7 @@
         <code>var letras = ['Enero', 'Febrero', ...];</code>
       </p>
       <button id="mes-button">¿En qué mes estamos?</button>
-      <span id="mes-output"></span>
+      <span id="mes-output" class="output"></span>
     </section>
     <section id="c2">
       <h1>Actividad C2</h1>
@@ -78,32 +79,103 @@ usar un diccionario, array o lista que asocia a cada signo el período del año 
       </p>
       <input id="zodiaco-input" type="date">
       <button id="zodiaco-button">Mostrar signo zodiacal</button>
-      <span id="zodiaco-output"></span>
+      <p id="zodiaco-output" class="output"></p>
     </section>
     <section id="c4">
       <h1>Actividad C4</h1>
-      <p></p>
-      <button>-</button>
+      <p>
+        Escribe un programa que muestre una tabla de multiplicar.
+      </p>
+      <input type="number" id="tabla-multiplicador" placeholder="Multiplicador">
+      <input type="number" id="tabla-multiplicando" placeholder="Multiplicando">
+      <button id="tabla-button">Generar tabla</button>
+      <div id="tabla-output" class="output"></div>
     </section>
     <section id="c5">
       <h1>Actividad C5</h1>
-      <p></p>
-      <button>-</button>
+      <p>Un viajero desea saber cuánto tiempo tomó un viaje que realizó. Él tiene la duración en
+      minutos de cada uno de los tramos del viaje.<br/>
+Desarrolla un programa que permita ingresar los tiempos de viaje de los tramos y entregue
+como resultado el tiempo total de viaje en formato horas:minutos<br/>
+El programa deja de pedir tiempos de viaje cuando se ingresa un 0.</p>
+      <input type="number" id="viaje-input">
+      <button id="viaje-button">Añadir tiempo</button>
+      <button id="viaje-reset">Reiniciar</button>
+      <div id="viaje-output" class="output"></div>
     </section>
     <section id="c6">
       <h1>Actividad C6</h1>
-      <p></p>
-      <button>-</button>
+      <h2>a)</h2>
+      <p>Escribe un programa que «piense» un número entre 0 y 100, y entregue pistas al usuario
+para que lo adivine. El usuario debe ingresar su intento, y el programa debe decir si el
+número pensado es mayor, menor, o el correcto:</p>
+      <input type="number" id="adivina-input" placeholder="Adivina el número...">
+      <button id="adivina-button">Intenta</button>
+      <button id="adivina-reinicia">Reinicia</button>
+      <div id="adivina-output" class="output"></div>
+      <h2>b)</h2>
+      <p>Una vez que completes este ejercicio, es hora de invertir los roles: ahora tú pensarás un
+número y el computador lo adivinará.</p>
+      <button id="piensa-button">Ya lo he pensado</button>
+      <div id="piensa-output" class="output"></div>
+      <button id="piensa-button-mayor" disabled>Mayor</button>
+      <button id="piensa-button-menor" disabled>Menor</button>
+      <button id="piensa-button-correcto" disabled>¡Es este!</button>
+      <button id="piensa-reinicia">Reinicia</button>
     </section>
     <section id="c7">
       <h1>Actividad C7</h1>
-      <p></p>
-      <button>-</button>
+      <p>Una máquina de alimentos tiene productos de tres tipos, A, B y C, que valen respectivamente
+      1.20€, 2.70€ y 4.80€. La máquina acepta y da cambio con monedas de 10cent, 50cent y 1€.<p/>
+      <p>Escriba un programa que pida al usuario elegir el producto y luego le pida ingresar las monedas
+hasta alcanzar el monto a pagar. Si el monto ingresado es mayor que el precio del producto, el
+programa debe entregar las monedas de vuelto, una por una.</p>
+      <div>
+        <label for="producto">Selecciona un producto: </label>
+        <select id="producto">
+          <option value="A" id="productoA" data-precio="1.20">A - 1.20€</option>
+          <option value="B" id="productoB" data-precio="2.70">B - 2.70€</option>
+          <option value="C" id="productoC" data-precio="4.80">C - 4.80€</option>
+        </select>
+        <button id="seleccionar-producto">Seleccionar</button>
+        <button id="producto-reinicia">Reiniciar</button>
+      </div>
+      <div id="producto-seleccionado"></div>
+      <div id="introducir-monedas">
+        <label for="monedas">Introduce monedas: </label>
+        <button id="10">10 cent</button>
+        <button id="50">50 cent</button>
+        <button id="100">1 eur</button>
+        <div id="total-introducido"></div>
+      </div>
+      <div id="cambio"></div>
     </section>
     <section id="c8">
       <h1>Actividad C8</h1>
-      <p></p>
-      <button></button>
+      <p>El supermercado Pryca ha lanzado una promoción para todos sus clientes que posean su
+tarjeta de fidelización. La promoción consiste en aplicar un descuento por cada n productos
+que pasan por caja.<p/>
+      <p>El primer descuento es de 20%, y se aplica sobre los primeros n productos ingresados. Luego,
+cada descuento es la mitad del anterior, y es aplicado sobre los siguientes n productos.<br/>
+Por ejemplo, si n = 3 y la compra es de 11 productos, entonces los tres primeros tienen 20% de
+descuento, los tres siguientes 10%, los tres siguientes 5%, y los dos últimos no tienen
+descuento.<p/>
+      <p>Escriba un programa que pida al usuario ingresar n y la cantidad de productos, y luego los
+precios de cada producto. Al final, el programa debe entregar el precio total, el descuento total
+y el precio final después de aplicar el descuento.<p/>
+      <p>Si al aplicar el descuento el precio queda con decimales, redondee el valor hacia abajo.</p>
+      <label for="n">N: </label>
+      <input type="number" id="n">
+      <label for="n-productos">Número de productos: </label>
+      <input type="number" id="n-productos">
+      <button id="n-button">Aceptar</button>
+      <button id="reinicia-n">Reinicia</button>
+      <div id="precio-producto-container" class="output">
+        <label for="precio-producto" id="precio-producto-label">Precio producto 1: </label>
+        <input type="number" id="precio-producto">
+        <button id="precio-producto-button">Aceptar</button>
+        <div id="n-output" class="output"></div>
+      </div>
     </section>
   </body>
 </html>

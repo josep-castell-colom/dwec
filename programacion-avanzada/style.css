@@ -1,0 +1,42 @@
+.output {
+  margin: 1rem;
+}
+
+.coin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1;
+  margin: 0.3rem;
+  background-color: #E8B319;
+  border: solid 2px #E0B010;
+  border-radius: 50%;
+  box-shadow: 3px 3px 3px black;
+}
+
+.unEuro {
+  border-width: 0.7rem;
+  background-color: #C0C0C0;
+  width: 5rem;
+  height: 5rem;
+  font-size: 3rem;
+}
+
+.cincuentaCent {
+  width: 7rem;
+  height: 7rem;
+  font-size: 2rem;
+}
+
+.diezCent {
+  width: 4rem;
+  height: 4rem;
+}
+
+#cambio {
+  display: flex;
+  flex-wrap: wrap;
+}
+ #precio-producto-container {
+  display: none;
+ }

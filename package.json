@@ -1,0 +1,22 @@
+{
+  "name": "exercicis-git",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josep-castell-colom/DWEC.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josep-castell-colom/DWEC/issues"
+  },
+  "homepage": "https://github.com/josep-castell-colom/DWEC#readme",
+  "devDependencies": {
+    "eslint": "^8.27.0"
+  }
+}
