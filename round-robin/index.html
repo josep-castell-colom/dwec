@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Round Robin - JavaScript</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js" type="module" defer></script>
+  </head>
+  <body>
+    <div class="wrapper flex">
+      <header class="flex">
+        <h1>Round Robin in JavaScript</h1>
+      </header>
+      <main class="flex">
+        <div class="settings">
+          <div class="processes flex"></div>
+        </div>
+        <div class="simulation">
+          <h3>Simulation</h3>
+          <div class="render-simulation flex">
+            <div class="cycle-container flex">
+              <span class="process-title flex">Cycle</span>
+              <span class="cell cycle">0</span>
+              <span class="cell cycle">1</span>
+              <span class="cell cycle">2</span>
+              <span class="cell cycle">3</span>
+              <span class="cell cycle">4</span>
+              <span class="cell cycle">5</span>
+              <span class="cell cycle">6</span>
+              <span class="cell cycle">7</span>
+              <span class="cell cycle">8</span>
+              <span class="cell cycle">9</span>
+            </div>
+            <div class="process-timeline flex">
+              <span class="process-title flex">Process A (0, 5)</span>
+              <span class="cell start-running"></span>
+              <span class="cell running"></span>
+              <span class="cell waiting"></span>
+              <span class="cell waiting"></span>
+              <span class="cell waiting"></span>
+              <span class="cell waiting"></span>
+              <span class="cell running"></span>
+              <span class="cell running"></span>
+              <span class="cell waiting"></span>
+              <span class="cell end"></span>
+            </div>
+            <div class="process-timeline flex">
+              <span class="process-title flex">Process B (2, 3)</span>
+              <span class="cell hidden"></span>
+              <span class="cell hidden"></span>
+              <span class="cell start-running"></span>
+              <span class="cell running"></span>
+              <span class="cell waiting"></span>
+              <span class="cell waiting"></span>
+              <span class="cell waiting"></span>
+              <span class="cell waiting"></span>
+              <span class="cell end"></span>
+              <span class="cell hidden"></span>
+            </div>
+            <div class="process-timeline flex">
+              <span class="process-title flex">Process C (3, 2)</span>
+              <span class="cell hidden"></span>
+              <span class="cell hidden"></span>
+              <span class="cell hidden"></span>
+              <span class="cell start-waiting"></span>
+              <span class="cell running"></span>
+              <span class="cell end"></span>
+              <span class="cell hidden"></span>
+              <span class="cell hidden"></span>
+              <span class="cell hidden"></span>
+              <span class="cell hidden"></span>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="flex">
+        <small
+          >Josep Maria Castell Colom - DAW2 - Desenvolupament Web Entorn Client
+          - CIFP Francesc de Borja Moll</small
+        >
+      </footer>
+    </div>
+  </body>
+</html>
