@@ -23,62 +23,41 @@ let finishedProcesses = [];
 
 const quantum = 2;
 let quantumCount = 0;
-let cicle = 0;
-let quantumCicleCounter = 0;
+let cycle = 0;
+let quantumCycleCounter = 0;
 let end = false;
 
 function main() {
   incomingProcesses = [...processes];
   while (!end) {
-    printCicle();
+    printCycle();
 
     // Starting processes
     checkStartingProcesses();
 
     // Running processes
-    if (cicle === 0) {
+    if (quantumCycleCounter === 0) {
       changeRunningProcess();
-    }
-    if (checkQuantumJump()) {
-      changeRunningProcess();
-      resetQuantumCicleCounter();
     }
 
-    console.log(`Running process: ${runningProcess.name}`);
-    runningProcess.burst--;
-    processesQueue.forEach(process => {
-      console.log(`In queue: ${process.name}`);
-    });
+    runRunningProcess();
+
+    // Print queue & paused
+    printQueues();
 
     // Finish process
-    if (runningProcess.burst === 0) {
-      console.log(`Finished process: ${runningProcess.name}`);
-      finishedProcesses.push({ ...runningProcess, endCicle: cicle });
-      runningProcess = null;
-      end = checkEnd();
-      if (end) return;
-      changeRunningProcess();
-      resetQuantumCicleCounter();
-    } else {
-      quantumCicleCounter++;
-    }
-
-    cicle++;
-
-    if (cicle === 20) {
-      console.error("Bucle infinit");
-      return;
-    }
+    checkFinishprocessAndQuantumJump();
+    cycle++;
   }
 }
 
 function checkQuantumJump() {
-  if (quantumCicleCounter === quantum) return true;
+  if (quantumCycleCounter === quantum) return true;
   return false;
 }
 
-function resetQuantumCicleCounter() {
-  quantumCicleCounter = 0;
+function resetQuantumCycleCounter() {
+  quantumCycleCounter = 0;
   quantumCount++;
 }
 
@@ -89,12 +68,21 @@ function checkStartingProcesses() {
       console.log(`Starting process: ${process.name}`);
     });
     processesQueue = [...processesQueue, ...startingProcesses];
+    processesQueue = processesQueue.map(process => {
+      process.cyclesLeft = process.burst;
+      return process;
+    });
     incomingProcesses = incomingProcesses.filter(checkQueue);
   }
 }
 
+function runRunningProcess() {
+  console.log(`Running process: ${runningProcess.name}`);
+  runningProcess.cyclesLeft--;
+}
+
 function checkStarting(process) {
-  return process.arrival === cicle;
+  return process.arrival === cycle;
 }
 
 function checkRunning(process) {
@@ -103,6 +91,22 @@ function checkRunning(process) {
 
 function checkQueue(process) {
   if (!processesQueue.includes(process)) return process;
+}
+
+function checkFinishprocessAndQuantumJump() {
+  if (runningProcess.cyclesLeft === 0) {
+    console.log(`Finished process: ${runningProcess.name}`);
+    finishedProcesses.push({ ...runningProcess, endCycle: cycle });
+    runningProcess = null;
+    end = checkEnd();
+    if (end) return;
+    resetQuantumCycleCounter();
+  } else {
+    quantumCycleCounter++;
+    if (checkQuantumJump()) {
+      resetQuantumCycleCounter();
+    }
+  }
 }
 
 function changeRunningProcess() {
@@ -133,13 +137,29 @@ function checkEnd() {
   return false;
 }
 
-function printCicle() {
+function printCycle() {
   console.log("---");
-  console.log(`Cicle ${cicle}`);
+  console.log(`Cycle ${cycle}`);
   console.log(`Quantum ${quantumCount}`);
+}
+
+function printQueues() {
+  if (processesQueue.length > 0) {
+    let queue = "In queue:";
+    processesQueue.forEach(process => {
+      queue += ` ${process.name}`;
+    });
+    console.log(queue);
+  }
+  if (pausedProcesses.length > 0) {
+    let paused = "Paused:";
+    pausedProcesses.forEach(process => {
+      paused += ` ${process.name}`;
+    });
+    console.log(paused);
+  }
 }
 
 main();
 console.log("---");
-
 console.log("Finished processes:", finishedProcesses);
