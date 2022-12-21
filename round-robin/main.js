@@ -15,10 +15,11 @@ const processes = [
     burst: 2,
   },
 ];
+
 let incomingProcesses = [];
 let processesQueue = [];
-let pausedProcesses = [];
 let runningProcess = null;
+let pausedProcesses = [];
 let finishedProcesses = [];
 
 const quantum = 2;
@@ -32,21 +33,17 @@ function main() {
   while (!end) {
     printCycle();
 
-    // Starting processes
     checkStartingProcesses();
 
-    // Running processes
     if (quantumCycleCounter === 0) {
       changeRunningProcess();
     }
 
     runRunningProcess();
 
-    // Print queue & paused
     printQueues();
 
-    // Finish process
-    checkFinishprocessAndQuantumJump();
+    checkFinishProcessAndQuantumJump();
     cycle++;
   }
 }
@@ -85,7 +82,7 @@ function checkStarting(process) {
   return process.arrival === cycle;
 }
 
-function checkRunning(process) {
+function checkNotRunning(process) {
   if (process !== runningProcess) return process;
 }
 
@@ -93,7 +90,7 @@ function checkQueue(process) {
   if (!processesQueue.includes(process)) return process;
 }
 
-function checkFinishprocessAndQuantumJump() {
+function checkFinishProcessAndQuantumJump() {
   if (runningProcess.cyclesLeft === 0) {
     console.log(`Finished process: ${runningProcess.name}`);
     finishedProcesses.push({ ...runningProcess, endCycle: cycle });
@@ -110,19 +107,20 @@ function checkFinishprocessAndQuantumJump() {
 }
 
 function changeRunningProcess() {
-  saveRunningProcess();
+  pauseRunningProcess();
   if (processesQueue.length > 0) {
     runningProcess = processesQueue[0];
-    processesQueue = processesQueue.filter(checkRunning);
+    processesQueue = processesQueue.filter(checkNotRunning);
   } else if (pausedProcesses.length > 0) {
     runningProcess = pausedProcesses[0];
-    pausedProcesses = pausedProcesses.filter(checkRunning);
+    pausedProcesses = pausedProcesses.filter(checkNotRunning);
   }
 }
 
-function saveRunningProcess() {
+function pauseRunningProcess() {
   if (runningProcess) {
     pausedProcesses.push({ ...runningProcess });
+    runningProcess = null;
   }
 }
 
