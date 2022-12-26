@@ -17,6 +17,10 @@ h3 {
   margin: 0;
 }
 
+hr {
+  width: 70%;
+}
+
 header {
   width: 100%;
   justify-content: center;
@@ -75,7 +79,8 @@ main * {
   margin: 3rem auto;
 }
 
-.render-simulation {
+.render-simulation,
+#render-simulation {
   flex-direction: column;
   align-items: flex-start;
   font-size: 0.8rem;
@@ -84,6 +89,7 @@ main * {
 
 .process-title {
   width: 150px;
+  height: 30px;
   justify-content: flex-end;
   align-items: center;
   margin: 0.1rem;
@@ -123,5 +129,5 @@ main * {
 }
 
 .hidden {
-  opacity: 0;
+  /* opacity: 0; */
 }

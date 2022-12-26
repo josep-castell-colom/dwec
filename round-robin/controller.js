@@ -1,35 +1,92 @@
+import { initializeSimulationTable, renderSimulationCycle } from "./dom.js";
+
+// export const processes = [
+//   {
+//     name: "A",
+//     arrival: 0,
+//     burst: 5,
+//   },
+//   {
+//     name: "B",
+//     arrival: 2,
+//     burst: 3,
+//   },
+//   {
+//     name: "C",
+//     arrival: 3,
+//     burst: 2,
+//   },
+// ];
+
+// Wikipedia example
 export const processes = [
   {
-    name: "A",
+    name: "P1",
     arrival: 0,
-    burst: 5,
+    burst: 1,
   },
   {
-    name: "B",
-    arrival: 2,
-    burst: 3,
-  },
-  {
-    name: "C",
-    arrival: 3,
+    name: "P2",
+    arrival: 0,
     burst: 2,
+  },
+  {
+    name: "P3",
+    arrival: 0,
+    burst: 4,
+  },
+  {
+    name: "P4",
+    arrival: 0,
+    burst: 6,
+  },
+  {
+    name: "P5",
+    arrival: 0,
+    burst: 8,
+  },
+  {
+    name: "P6",
+    arrival: 11,
+    burst: 8,
+  },
+  {
+    name: "P7",
+    arrival: 11,
+    burst: 6,
+  },
+  {
+    name: "P8",
+    arrival: 11,
+    burst: 4,
+  },
+  {
+    name: "P9",
+    arrival: 11,
+    burst: 2,
+  },
+  {
+    name: "P10",
+    arrival: 11,
+    burst: 1,
   },
 ];
 
-let incomingProcesses = [];
-let processesQueue = [];
-let runningProcess = null;
-let pausedProcesses = [];
-let finishedProcesses = [];
+export let incomingProcesses = [];
+export let processesQueue = [];
+export let runningProcess = null;
+export let pausedProcesses = [];
+export let finishedProcesses = [];
 
 export const quantum = 3;
-let quantumCount = 0;
-let cycle = 0;
-let quantumCycleCounter = 0;
-let end = false;
+export let quantumCounter = 0;
+export let cycle = 0;
+export let quantumCycleCounter = 0;
+export let end = false;
 
-function simulation() {
+export function simulation() {
   incomingProcesses = [...processes];
+  initializeSimulationTable();
   while (!end) {
     printCycle();
 
@@ -43,6 +100,7 @@ function simulation() {
 
     printQueues();
 
+    renderSimulationCycle();
     checkFinishProcessAndQuantumJump();
     cycle++;
   }
@@ -55,7 +113,7 @@ function checkQuantumJump() {
 
 function resetQuantumCycleCounter() {
   quantumCycleCounter = 0;
-  quantumCount++;
+  quantumCounter++;
 }
 
 function checkStartingProcesses() {
@@ -138,7 +196,9 @@ function checkEnd() {
 function printCycle() {
   console.log("---");
   console.log(`Cycle ${cycle}`);
-  console.log(`Quantum ${quantumCount}`);
+  if (quantumCycleCounter === 0) {
+    console.log(`Quantum ${quantumCounter}`);
+  }
 }
 
 function printQueues() {
@@ -158,6 +218,6 @@ function printQueues() {
   }
 }
 
-simulation();
-console.log("---");
-console.log("Finished processes:", finishedProcesses);
+// simulation();
+// console.log("---");
+// console.log("Finished processes:", finishedProcesses);
